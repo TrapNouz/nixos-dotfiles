@@ -23,6 +23,7 @@
     device = "nodev";
     efiSupport = true; # Add this since you are on a modern UEFI system
     useOSProber = true;
+    default = "saved";
   };
 
   # Use latest kernel.
