@@ -34,7 +34,10 @@
 
       # FORCE WINDOWS AS THE FIRST CHOICE:
       # Entry 1 is NixOS (latest generation), Entry 2 is Windows 11.
-      extraConfig = "default_entry: 2";
+      extraConfig = '' 
+      default_entry: Windows 11
+      timeout: 5
+      '';
 
       # Native Secure Boot Layer
       enrollConfig = true;
