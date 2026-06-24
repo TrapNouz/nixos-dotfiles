@@ -1,0 +1,15 @@
+# Nix build outputs
+result
+result-*
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.age
+agenix/
+
+# Temp files
+*.swp
+*.swo
+.DS_Store
