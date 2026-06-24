@@ -19,12 +19,50 @@
 
 
   boot.loader.grub = {
-    enable = true;
+    enable = false;
     device = "nodev";
     efiSupport = true; # Add this since you are on a modern UEFI system
     useOSProber = true;
     default = "2";
   };
+
+
+  boot.loader.limine = {
+      enable = true;
+      enableEditor = false;
+      maxGenerations = 10;
+
+      # FORCE WINDOWS AS THE FIRST CHOICE:
+      # Entry 1 is NixOS (latest generation), Entry 2 is Windows 11.
+      extraConfig = "default_entry: 2";
+
+      # Native Secure Boot Layer
+      enrollConfig = true;
+      panicOnChecksumMismatch = true;
+      secureBoot = {
+        enable = true;
+        autoGenerateKeys = true;
+        autoEnrollKeys.enable = true;
+      };
+
+      # Dual-Boot Chainloading
+      extraEntries = ''
+        /Windows 11
+        protocol: efi
+        path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+      '';
+
+      # Interface Styling
+      style = {
+        wallpapers = [ ./abstract-swirls.jpg ];
+        wallpaperStyle = "stretched";
+        interface = {
+          branding = "Nathan's NixOS Machine";
+          brandingColor = "5";
+        };
+      };
+    };
+
 
   # Use latest kernel.
   boot.kernelPackages = nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-latest;
@@ -169,8 +207,8 @@ home-manager.users.trapnouz = import ./home.nix;
    brave
    obsidian
    protonmail-desktop
-   os-prober
- 
+   sbctl
+
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
