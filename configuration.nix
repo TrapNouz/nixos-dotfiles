@@ -52,7 +52,7 @@
       extraEntries = ''
         /Windows 11
         protocol: efi
-        path: uuid://8016-E5F9/EFI/Microsoft/Boot/bootmgfw.efi
+       path: hdd(2:1):/EFI/Microsoft/Boot/bootmgfw.efi
       '';
 
       # Interface Styling
