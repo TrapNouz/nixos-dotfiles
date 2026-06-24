@@ -38,7 +38,7 @@ programs.kitty = {
 programs.fish = {
     enable = true;
     shellAliases = {
-      updatenix = "sudo nixos-rebuild switch --flake /home/trapnouz/.dotfiles/#nixos";
+      updatenix = "sudo nixos-rebuild switch --flake /home/trapnouz/.dotfiles#nixos && cd /home/trapnouz/.dotfiles && git add . && git commit -m 'rebuild: '(date +%Y-%m-%d) && git push";
       garbagenix = "nix-collect-garbage -d && sudo nix-collect-garbage -d && nix-store --optimise";
     };
     interactiveShellInit = "fastfetch;set fish_greeting";
