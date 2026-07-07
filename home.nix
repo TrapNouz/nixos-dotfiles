@@ -10,7 +10,7 @@
 
   imports = [
     # Import the Home Manager module provided by the flake
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
   ];
 
   # Enable nix-index with fast database and fish integration
