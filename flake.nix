@@ -21,7 +21,7 @@
   outputs = { self, nixpkgs, thyx, home-manager, nix-cachyos-kernel, helium, }@ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 
-      system = "x86_64-linux";
+     system = "x86_64-linux";
       specialArgs = { inherit inputs;nix-cachyos-kernel = inputs.nix-cachyos-kernel; };
       modules = [
         ./configuration.nix
