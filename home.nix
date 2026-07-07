@@ -14,6 +14,10 @@
     # add user packages here
   ];
 
+  home.file = {
+    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
+    ".config/rofi/catppuccin-mocha.rasi".source = ./rofi/catppuccin-mocha.rasi;
+  };
 
 programs.vim = {
   enable = true;
