@@ -184,6 +184,7 @@ nix.gc = {
 
   # Wayland Cursor Fix
   environment.sessionVariables = {
+    QSG_RHI_BACKEND = "opengl";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
