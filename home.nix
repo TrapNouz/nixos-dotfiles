@@ -62,6 +62,92 @@
     interactiveShellInit = "fastfetch;set fish_greeting";
   };
 
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "nixos_small";
+        padding = {
+          top = 2;
+          left = 2;
+          right = 6;
+        };
+      };
+      display = {
+        separator = " ─── ";
+        color = {
+          keys = "magenta";
+          title = "cyan";
+        };
+      };
+      modules = [
+        "title"
+        {
+          type = "custom";
+          format = "┌────────────────────────────────────────┐";
+          outputColor = "blue";
+        }
+        {
+          type = "os";
+          key = "  󱄅  OS     ";
+          keyColor = "cyan";
+        }
+        {
+          type = "kernel";
+          key = "    Kernel ";
+          keyColor = "cyan";
+        }
+        {
+          type = "uptime";
+          key = "  󱎫  Uptime ";
+          keyColor = "cyan";
+        }
+        {
+          type = "packages";
+          key = "  󰏖  Pkgs   ";
+          keyColor = "cyan";
+        }
+        {
+          type = "shell";
+          key = "  󰈺  Shell  ";
+          keyColor = "cyan";
+        }
+        {
+          type = "terminal";
+          key = "    Term   ";
+          keyColor = "cyan";
+        }
+        {
+          type = "custom";
+          format = "├────────────────────────────────────────┤";
+          outputColor = "blue";
+        }
+        {
+          type = "cpu";
+          key = "    CPU    ";
+          keyColor = "yellow";
+        }
+        {
+          type = "gpu";
+          key = "  󰢮  GPU    ";
+          keyColor = "yellow";
+        }
+        {
+          type = "memory";
+          key = "    Memory ";
+          keyColor = "yellow";
+        }
+        {
+          type = "custom";
+          format = "└────────────────────────────────────────┘";
+          outputColor = "blue";
+        }
+        "break"
+        "colors"
+      ];
+    };
+  };
+
   # Fixes pinned taskbar icons breaking after Nix garbage collection
   home.activation.clean-plasma-launchers = "run sed -i 's|file:///nix/store/[^/]*/share/applications/|applications:|g' $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc || true";
 }
