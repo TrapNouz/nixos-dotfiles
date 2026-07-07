@@ -214,7 +214,6 @@ home-manager.users.trapnouz = import ./home.nix;
    wget
    unzip
    pkgs.obs-studio
-   brave
    obsidian
    protonmail-desktop
    sbctl
