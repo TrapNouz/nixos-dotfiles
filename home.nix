@@ -10,6 +10,7 @@
 
   # Your dotfiles/packages managed by Home Manager
   home.packages = with pkgs; [
+    rofi
     # add user packages here
   ];
 
