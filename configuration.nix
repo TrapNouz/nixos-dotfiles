@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs,nix-cachyos-kernel, ... }:
+{ config, pkgs,nix-cachyos-kernel,inputs, ... }:
 
 {
   imports =
@@ -211,6 +211,7 @@ home-manager.users.trapnouz = import ./home.nix;
    obsidian
    protonmail-desktop
    sbctl
+   inputs.helium.packages.${pkgs.system}.default
 
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
