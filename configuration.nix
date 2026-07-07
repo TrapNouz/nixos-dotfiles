@@ -25,14 +25,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 
-  boot.loader.grub = {
-    enable = false;
-    device = "nodev";
-    efiSupport = true; # Add this since you are on a modern UEFI system
-    useOSProber = true;
-    default = "2";
-  };
-
 
   boot.loader.limine = {
       enable = true;
