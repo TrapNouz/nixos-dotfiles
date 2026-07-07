@@ -5,6 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     thyx.url = "github:rccyx/thyx";
 
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {                                          
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +21,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
-  outputs = { self, nixpkgs, thyx, home-manager, nix-cachyos-kernel, helium, }@ inputs: {
+  outputs = { self, nixpkgs, thyx, home-manager, nix-cachyos-kernel, helium,nix-index-database, }@ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 
      system = "x86_64-linux";
@@ -27,6 +30,12 @@
         ./configuration.nix
          home-manager.nixosModules.home-manager
          thyx.nixosModules.default
+
+         {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
       ];
     };
   };

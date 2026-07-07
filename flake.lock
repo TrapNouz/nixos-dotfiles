@@ -131,6 +131,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783233851,
+        "narHash": "sha256-jzisD+3wWZPC4QvAsKtYguiGsmlH2SN3Mjx5LWd68Ok=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "fab14c7b63499d57cb6673d5690168c3ec42b99a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1783264223,
@@ -199,6 +219,7 @@
         "helium": "helium",
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "thyx": "thyx"
       }
