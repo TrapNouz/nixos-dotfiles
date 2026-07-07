@@ -5,6 +5,13 @@
 { config, pkgs,nix-cachyos-kernel,inputs, ... }:
 
 {
+
+  xdg.portal = {
+  enable = true;
+  
+  config.common.default = "kde";
+};
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -106,7 +113,6 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = [ pkgs.kdePackages.konsole ];
-
 
   # Configure keymap in X11
   services.xserver.xkb = {
