@@ -56,10 +56,18 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      unx = "cd /home/trapnouz/.dotfiles && nix flake update && sudo nixos-rebuild switch --flake /home/trapnouz/.dotfiles#nixos && git add . && (git commit -m 'rebuild: '(date +%Y-%m-%d) || true) && git push";
       garbagenix = "nix-collect-garbage -d && sudo nix-collect-garbage -d && nix-store --optimise";
     };
-    functions = {
+      functions = {
+    unx = ''
+      cd /home/trapnouz/.dotfiles
+      nix flake update
+      sudo nixos-rebuild switch --flake /home/trapnouz/.dotfiles#nixos
+      and git add .
+      git commit -m "rebuild: "(date +%Y-%m-%d)
+      or true
+      git push
+    '';
     sdn = ''
       echo "Running unx before shutdown..."
       unx
